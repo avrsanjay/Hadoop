@@ -1,0 +1,30 @@
+package com.cloudwick.hadoop.task1;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.mortbay.log.Log;
+
+public class Task1Reducer
+extends Reducer<Text,IntWritable,Text,IntWritable> {
+	private IntWritable result = new IntWritable();
+
+	static int overall_sum = 0;
+	Configuration conf = new Configuration();
+	public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+		int sum = 0;
+		if(overall_sum != 0 && conf.get("mapre.map.tasks") != null)
+		{
+			Log.info("number of map tasks(in if):"+conf.get("mapre.map.tasks"));
+			Task1Driver.map_tasks = Integer.parseInt(conf.get("mapre.map.tasks"));
+		}
+		for (IntWritable val : values) {
+			sum += val.get();
+		}
+		overall_sum+=sum;
+	}
+	
+}

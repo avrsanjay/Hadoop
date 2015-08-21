@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1439235641772_1" label="MapReduce" name="MapReduce">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Task1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Task3" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Task5" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/LocalRunTest" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Task2" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Task4" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SampleToolRunner" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/MapRed" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1439425937441_2" label="MapReduceTasks" name="MapReduceTasks"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1437684272061_0" label="Window Working Set" name="Aggregate for window 1437684272061"/>
+<mruList name="MapReduce"/>
+<mruList name="MapReduceTasks"/>
+</workingSetManager>

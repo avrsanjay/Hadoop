@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TestWordCount.java&apos; to &apos;Task5/src/test/java/com.cloudwick.hadoop.Task5&apos;&#x0D;&#x0A;- Original project: &apos;LocalRunTest&apos;&#x0D;&#x0A;- Destination element: &apos;Task5/src/test/java/com.cloudwick.hadoop.Task5&apos;&#x0D;&#x0A;- Original element: &apos;com.cloudwick.hadoop.LocalRunTest.TestWordCount.java&apos;" description="Copy compilation unit" destination="=Task5/src\/test\/java&lt;com.cloudwick.hadoop.Task5" element1="/src\/main\/java&lt;com.cloudwick.hadoop.LocalRunTest{TestWordCount.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1438899736416" units="1" version="1.0"/>
+</session>

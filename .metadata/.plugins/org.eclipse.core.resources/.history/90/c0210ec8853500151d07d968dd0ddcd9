@@ -1,0 +1,32 @@
+package com.cloudwick.hadoop.task1;
+
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Mapper.Context;
+import org.mortbay.log.Log;
+
+public class Task1Mapper
+extends Mapper<Object, Text, Integer, Integer>{
+
+	private final static IntWritable one = new IntWritable(1);
+	//private Text word = new Text();
+
+	public void map(Object key, Text value, Context context	) throws IOException, InterruptedException 
+	{
+		int number_of_words = 0;
+		int letter_count = 0;
+		
+		StringTokenizer itr = new StringTokenizer(value.toString());
+		while (itr.hasMoreTokens()) {
+			//word.set(itr.nextToken());
+			letter_count += itr.nextToken().length();
+			number_of_words++;
+		}
+		context.write(number_of_words, letter_count);
+	}
+}

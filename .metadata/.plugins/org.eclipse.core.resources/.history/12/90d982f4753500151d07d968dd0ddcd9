@@ -1,0 +1,5 @@
+package com.cloudwick.hadoop.task1;
+
+public class Task1Combiner {
+
+}

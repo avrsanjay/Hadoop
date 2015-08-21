@@ -1,0 +1,43 @@
+package com.cloudwick.hadoop.task1;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.mortbay.log.Log;
+
+import com.cloudwick.hadoop.MapRed.WordCountDriver;
+import com.cloudwick.hadoop.MapRed.WordCountDriver.StringMapper;
+import com.cloudwick.hadoop.MapRed.WordCountDriver.StringReducer;
+
+public class Task1Driver {
+
+	static int map_tasks = 1;
+	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+			Configuration conf = new Configuration();
+			Job job = Job.getInstance(conf, "task1");
+			job.setJarByClass(Task1Driver.class);
+			job.setMapperClass(Task1Mapper.class);
+			job.setReducerClass(Task1Reducer.class);
+			//job.setCombinerClass(Task1Combiner.class);
+			job.setOutputKeyClass(Text.class);
+			job.setOutputValueClass(IntWritable.class);
+			FileInputFormat.addInputPath(job, new Path(args[0]));
+			FileOutputFormat.setOutputPath(job, new Path(args[1]));
+			Log.info("number of map tasks:"+conf.get("mapre.map.tasks"));
+			map_tasks = Integer.parseInt(conf.get("mapre.map.tasks"));
+			if(job.waitForCompletion(true))
+			{
+				System.out.println("no of map tasks:"+conf.get("mapre.map.tasks"));
+				System.out.println("average task per reducer:"+Task1Reducer.overall_sum/map_tasks);
+			}
+			else
+				System.out.println("job failed");
+	}
+
+}

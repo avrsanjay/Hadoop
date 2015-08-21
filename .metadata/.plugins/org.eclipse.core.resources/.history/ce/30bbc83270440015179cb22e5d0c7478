@@ -1,0 +1,14 @@
+package com.cloudwick.hadoop.Task6;
+
+
+
+
+public class MyInputFormat extends FileInputFormat<MyKey,MyValue> {
+	
+	
+	@Override
+	public RecordReader<MyKey, MyValue> createRecordReader(InputSplit arg0,
+			TaskAttemptContext arg1) throws IOException, InterruptedException {
+		return new MyRecordReader();
+	}	
+}

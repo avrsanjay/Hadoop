@@ -1,0 +1,27 @@
+package com.cloudwick.hadoop.task1;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.mortbay.log.Log;
+
+public class Task1Reducer
+extends Reducer<IntWritable,IntWritable,Text,IntWritable> 
+{
+	static IntWritable Total_words = new IntWritable(0);
+	static IntWritable Total_letters = new IntWritable(0);
+	
+	public void reduce(IntWritable number_of_words, Iterable<IntWritable> letter_count, Context context) throws IOException, InterruptedException 
+	{
+		Total_words.set(Total_words.get()+number_of_words.get());
+		for (IntWritable val : letter_count) {
+			Total_letters.set(Total_letters.get()+val.get());
+		}
+		//context.write(Total_words, Total_letters);
+		System.out.println("total words:"+Total_words+" total letters:"+Total_letters);
+	}
+	
+}

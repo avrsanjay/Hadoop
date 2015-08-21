@@ -1,0 +1,10 @@
+package com.cloudwick.hadoop.task1;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class Task1Combiner extends Reducer<Text, IntWritable, Text, IntWritable>
+{
+
+}
